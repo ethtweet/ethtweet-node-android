@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ipfsTwitter</string>
+
+    <string name="permission_store">为了更好的提供服务，需要获取存储空间权限</string>
+
+
+    <string name="kelin_apk_updater_sub_title">更新内容如下：</string>
+    <string name="kelin_apk_updater_update_dialog_label">发现新版本</string>
+    <string name="kelin_apk_updater_skip_this_version">忽略此版本</string>
+    <string name="kelin_apk_updater_force_tips">您必须升级后才能继续使用！</string>
+    <string name="kelin_apk_updater_fail">下载失败</string>
+    <string name="kelin_apk_updater_update">立即升级</string>
+    <string name="kelin_apk_updater_downing">正在下载...</string>
+    <string name="kelin_apk_updater_network">网络已断开，等待恢复...</string>
+
+    <string name="permission_exit">退出</string>
+    <string name="permission_setting">设置</string>
+    <string name="permission_fail">未获取权限</string>
+    <string name="permission_storage">为了更好的提供服务，需要获取存储空间权限</string>
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MaxSizeView">
+        <attr name="android:maxHeight" />
+        <attr name="android:maxWidth" />
+    </declare-styleable>
+
+
+    <!--进度条样式-->
+    <declare-styleable name="NumberProgressBar">
+        <attr name="progress_unreached_color" format="color" />
+        <attr name="progress_reached_color" format="color" />
+        <attr name="progress_textsize" format="dimension" />
+        <attr name="progress_textcolor" format="color" />
+    </declare-styleable>
+
+
+
+</resources>

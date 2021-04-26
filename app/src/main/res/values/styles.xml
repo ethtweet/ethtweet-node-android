@@ -1,0 +1,49 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TransparentTheme" parent="AppTheme">
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:colorPrimary">@color/color242A37</item>
+    </style>
+
+
+    <style name="apk_updater_style_progress_bar_mini" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:maxHeight">50dip</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+    </style>
+
+
+    <style name="KelinApkUpdaterUpdateDialog" parent="@android:style/Theme.Dialog">
+        <item name="windowMinWidthMajor">30%</item>
+        <item name="windowMinWidthMinor">30%</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@style/KelinPhotoSelectorDialogCenterAnim</item>
+    </style>
+
+    <style name="KelinPhotoSelectorDialogCenterAnim">
+        <item name="android:windowEnterAnimation">@anim/anim_alpha_in_100</item>
+        <item name="android:windowExitAnimation">@anim/anim_alpha_out_100</item>
+    </style>
+
+</resources>
