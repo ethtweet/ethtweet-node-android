@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface CommonService {
-    @GET("io.imipfs.node/app.update.json")
+    @GET("io.ipfstwitter.node/app.update.json")
     fun loadVersion(): Call<VersionConfig>
 
 }
