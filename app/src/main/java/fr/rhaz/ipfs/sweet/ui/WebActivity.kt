@@ -159,7 +159,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
             MessageType.IpfsOk -> {
                 //viewModel.checkIpfs()
                 Log.d("====", "Ipfs onMessageEvent")
-                //webview.loadUrl(url)
+                webview.loadUrl(url)
             }
         }
     }

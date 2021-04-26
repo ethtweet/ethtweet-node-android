@@ -30,7 +30,7 @@ class WebViewModel : ViewModel() {
     fun checkIpfs(){
         launch ({
             val checked = withContext(Dispatchers.IO) {
-                NetworkUtils.getInstance().isHostConnectable("127.0.0.1",5001)
+                NetworkUtils.getInstance().isHostConnectable("127.0.0.1",8080)
             }
             ipCheckRst.value = checked
             Log.d("====","local host is checked:"+checked)
