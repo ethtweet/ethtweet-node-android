@@ -67,34 +67,8 @@ class DaemonService : Service() {
     fun start() {
         logs.clear()
 
-        exec("init").apply {
-            read { logs.add(it)
-                Log.i("ipfs",it)}
-            waitFor()
-        }
 
-        /*config {
-            obj("API").obj("HTTPHeaders").apply {
-                array("Access-Control-Allow-Origin").also { origins ->
-                    val webui = json("https://ipfs.io/ipfs/QmX3aHdiAdd9NTxyhpp7i3Ftc9yQDDX9Z1p7mQMvww8anc/")
-                    val local = json("http://127.0.0.1:5001")
-                    if (webui !in origins) origins.add(webui)
-                    if (local !in origins) origins.add(local)
-                }
-
-                array("Access-Control-Allow-Methods").also { methods ->
-                    val put = json("PUT")
-                    val get = json("GET")
-                    val post = json("POST")
-                    if (put !in methods) methods.add(put)
-                    if (get !in methods) methods.add(get)
-                    if (post !in methods) methods.add(post)
-                }
-            }
-
-        }*/
-
-        exec("daemon").apply {
+        exec("").apply {
             daemon = this
             read {
                 logs.add(it)
@@ -130,12 +104,12 @@ class DaemonService : Service() {
             addAction(R.drawable.ic_cloud, "Open", open)
 
             if (daemon == null) {
-                setContentText("IPFS is not running")
+                setContentText("ipfsTwitter is not running")
 
                 val start = pendingService(intent<DaemonService>().action("start"))
                 addAction(R.drawable.ic_cloud, "start", start)
             } else {
-                setContentText("IPFS is running")
+                setContentText("ipfsTwitter is running")
 
                 val restart = pendingService(intent<DaemonService>().action("restart"))
                 addAction(R.drawable.ic_cloud, "restart", restart)
