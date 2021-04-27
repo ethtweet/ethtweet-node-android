@@ -8,14 +8,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.kelin.okpermission.OkPermission
 import fr.rhaz.ipfs.sweet.R
-import fr.rhaz.ipfs.sweet.utils.StatusBarUtil
 
 class SplashActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        StatusBarUtil.setStatusColor(this,true,true,R.color.color242A37)
         OkPermission.with(this)
             .addDefaultPermissions(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,

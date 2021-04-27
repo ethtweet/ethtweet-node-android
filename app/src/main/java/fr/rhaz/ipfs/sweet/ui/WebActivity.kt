@@ -23,7 +23,6 @@ import fr.rhaz.ipfs.sweet.*
 import fr.rhaz.ipfs.sweet.data.VersionConfig
 import fr.rhaz.ipfs.sweet.utils.MessageEvent
 import fr.rhaz.ipfs.sweet.utils.MessageType
-import fr.rhaz.ipfs.sweet.utils.StatusBarUtil
 import im.delight.android.webview.AdvancedWebView
 import kotlinx.android.synthetic.main.activity_web.*
 import org.greenrobot.eventbus.EventBus
@@ -44,7 +43,6 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web)
-        StatusBarUtil.setStatusColor(this,false,true,R.color.color242A37)
         startService<DaemonService>()
 
         webview!!.apply {

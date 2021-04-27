@@ -14,7 +14,6 @@
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:colorPrimary">@color/color242A37</item>
     </style>
 
 

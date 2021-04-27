@@ -11,7 +11,7 @@ import java.io.FileReader
 import java.io.InterruptedIOException
 
 operator fun File.get(path: String) = File(this, path)
-val Context.store get() = getExternalFilesDir(null)!!["ipfs2"]
+val Context.store get() = getExternalFilesDir(null)!!["ipfs"]
 val Context.bin get() = filesDir["goipfs"]
 val Context.config get() = JsonParser().parse(FileReader(store["config"])).asJsonObject
 
