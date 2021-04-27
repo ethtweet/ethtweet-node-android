@@ -69,7 +69,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
                 }
             }, "android")
 
-            loadUrl(url)
+            //loadUrl(url)
         }
         initObserver()
         initData()
@@ -123,7 +123,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
     fun initData(){
         webview.isVisible = false;
         viewModel.loadVersion()
-        //viewModel.checkIpfs()
+        viewModel.checkIpfs()
     }
 
     fun initObserver(){
@@ -154,9 +154,9 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
     fun onMessageEvent(event: MessageEvent) {
         when (event.type) {
             MessageType.IpfsOk -> {
-                //viewModel.checkIpfs()
+                viewModel.checkIpfs()
                 Log.d("====", "Ipfs onMessageEvent")
-                webview.loadUrl(url)
+                webview.reload()
             }
         }
     }
