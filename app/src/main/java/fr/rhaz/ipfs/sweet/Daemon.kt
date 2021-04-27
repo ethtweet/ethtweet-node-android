@@ -75,7 +75,7 @@ class DaemonService : Service() {
                 Log.i("ipfs",it) }
         }
         val handler = Handler()
-        handler.postDelayed({ EventBus.getDefault().postSticky(MessageEvent(MessageType.IpfsOk)) }, 2000)
+        handler.postDelayed({ EventBus.getDefault().postSticky(MessageEvent(MessageType.IpfsOk)) }, 3000)
 
         Log.i("====", logs.toString())
     }
