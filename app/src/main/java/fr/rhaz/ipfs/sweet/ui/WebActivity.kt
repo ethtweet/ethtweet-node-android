@@ -32,7 +32,7 @@ import org.greenrobot.eventbus.ThreadMode
 
 class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
 
-    var url:String = "https://ipfs.io/ipfs/QmVHVgFoj1zSReUMQgfoWzAwdietrTrEVifdynQ5ZRkQ5R/"
+    var url:String = "https://ipfs.io/ipfs/QmY6RXNx1aWbZmRmMCevYJ7WPcq4i3nedx3oCWnsoBma3n"
 
 
     val viewModel by lazy {
