@@ -108,7 +108,6 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
             super.onPageFinished(view, url)
             //在访问失败的时候会首先回调onReceivedError，然后再回调onPageFinished。
             webview.isVisible = true
-            StatusBarUtil.setStatusColor(this@WebActivity,false,true,R.color.colorPrimaryDark)
             ivlogo.isVisible = false
         }
 
