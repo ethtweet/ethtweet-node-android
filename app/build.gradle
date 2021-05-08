@@ -13,19 +13,12 @@ android {
         applicationId "io.ipfstwitter.node"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 104
-        versionName "1.0.4"
+        versionCode 105
+        versionName "1.0.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters "armeabi-v7a"
         }
-
-        manifestPlaceholders = [
-                JPUSH_PKGNAME: applicationId,
-                JPUSH_APPKEY : "5b3a0d14570d253f1e6161ae",
-                JPUSH_CHANNEL: "developer-default",
-        ]
-
     }
     signingConfigs {
         release {
