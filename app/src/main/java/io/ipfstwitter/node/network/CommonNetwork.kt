@@ -13,7 +13,7 @@ class CommonNetwork {
 
     private val commonService = ServiceCreator.create(CommonService::class.java)
 
-    suspend fun getVersion() = commonService.loadVersion().await()
+    suspend fun getVersion() = commonService.loadVersion(System.currentTimeMillis()).await()
 
 
     private suspend fun <T> Call<T>.await(): T {
