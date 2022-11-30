@@ -68,7 +68,7 @@ class DaemonService : Service() {
         logs.clear()
 
 
-        exec("").apply {
+        exec(" --user_data /sdcard/ethtweet ").apply {
             daemon = this
             read {
                 logs.add(it)

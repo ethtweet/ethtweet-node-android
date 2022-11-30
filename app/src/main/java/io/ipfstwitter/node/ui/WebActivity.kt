@@ -32,7 +32,7 @@ import org.greenrobot.eventbus.ThreadMode
 
 class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
 
-    var url:String = "http://127.0.0.1:8080/webui"
+    var url:String = "https://cdn.ipfsscan.io/ipns/share.ethtweet.io"
 
 
     val viewModel by lazy {
