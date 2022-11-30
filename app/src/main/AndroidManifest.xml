@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.ipfstwitter.node">
+    package="io.ethtweet.node">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -24,7 +24,7 @@
         android:required="false" />
 
     <application
-        android:name="io.ipfstwitter.node.MyApplication"
+        android:name="io.ethtweet.node.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -34,12 +34,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <service
-            android:name="io.ipfstwitter.node.DaemonService"
+            android:name="io.ethtweet.node.DaemonService"
             android:enabled="true"
             android:exported="true"></service>
 
         <activity
-            android:name="io.ipfstwitter.node.ui.SplashActivity"
+            android:name="io.ethtweet.node.ui.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,7 +50,7 @@
 
 
         <activity
-            android:name="io.ipfstwitter.node.ui.WebActivity"
+            android:name="io.ethtweet.node.ui.WebActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize">
 
         </activity>
@@ -64,7 +64,7 @@
                 android:resource="@xml/update_file_path" />
         </provider>
         <!--版本更新服务-->
-        <service android:name="io.ipfstwitter.node.apkUpdater.DownloadService" />
+        <service android:name="io.ethtweet.node.apkUpdater.DownloadService" />
 
 
     </application>

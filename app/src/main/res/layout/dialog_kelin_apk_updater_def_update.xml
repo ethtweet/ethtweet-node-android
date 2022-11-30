@@ -79,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvKelinApkUpdaterVersion"
         tools:text="@string/kelin_apk_updater_update_dialog_label" />
 
-    <io.ipfstwitter.node.apkUpdater.maxsizeview.MaxSizeScrollView
+    <io.ethtweet.node.apkUpdater.maxsizeview.MaxSizeScrollView
         android:id="@+id/slKelinApkUpdaterContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             android:textColor="#333333"
             android:textSize="14sp"
             tools:text="1, 全新的界面和功能\n2, 更清晰、更简单的操作\n3, 更快捷的搜索、订阅功能\n4, 新增管理简历库、职位库功能\n5, 新增雇主公司主页\n6, 新增通讯录、成员管理等功能" />
-    </io.ipfstwitter.node.apkUpdater.maxsizeview.MaxSizeScrollView>
+    </io.ethtweet.node.apkUpdater.maxsizeview.MaxSizeScrollView>
 
     <ProgressBar
         android:id="@+id/pbKelinApkUpdaterProgress"

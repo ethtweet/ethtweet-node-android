@@ -10,7 +10,7 @@ def releaseTime() {
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "io.ipfstwitter.node"
+        applicationId "io.ethtweet.node"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 106
@@ -56,7 +56,7 @@ android {
         }
         applicationVariants.all { variant ->
             variant.outputs.all { output ->
-                outputFileName = outputFileName.replace("app", "ipfsTwitter${variant.versionName}").replace(".apk", "-${releaseTime()}.apk")
+                outputFileName = outputFileName.replace("app", "ethtweet${variant.versionName}").replace(".apk", "-${releaseTime()}.apk")
             }
         }
     }
