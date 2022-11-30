@@ -43,7 +43,7 @@ class DaemonService : Service() {
 
     fun install() {
 
-        val type = "ipfs"
+        val type = "ethtweet"
 
         bin.apply {
             delete()
@@ -72,7 +72,7 @@ class DaemonService : Service() {
             daemon = this
             read {
                 logs.add(it)
-                Log.i("ipfs",it) }
+                Log.i("ethtweet",it) }
         }
         val handler = Handler()
         handler.postDelayed({ EventBus.getDefault().postSticky(MessageEvent(MessageType.IpfsOk)) }, 3000)
