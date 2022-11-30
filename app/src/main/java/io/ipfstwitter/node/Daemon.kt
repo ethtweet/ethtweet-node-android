@@ -30,8 +30,8 @@ class DaemonService : Service() {
         super.onCreate()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            NotificationChannel("ipfsTwitter", "ipfsTwitter", IMPORTANCE_MIN).apply {
-                description = "ipfsTwitter"
+            NotificationChannel("ethTweet", "ethTweet", IMPORTANCE_MIN).apply {
+                description = "ethTweet"
                 getSystemService(NotificationManager::class.java)
                     .createNotificationChannel(this)
             }
@@ -86,7 +86,7 @@ class DaemonService : Service() {
         daemon = null
     }
 
-    val notificationBuilder = NotificationCompat.Builder(this, "ipfsTwitter")
+    val notificationBuilder = NotificationCompat.Builder(this, "ethTweet")
 
     val notification
         @SuppressLint("RestrictedApi")
@@ -97,19 +97,19 @@ class DaemonService : Service() {
             color = parseColor("#69c4cd")
             setSmallIcon(R.drawable.ic_cloud)
             setShowWhen(false)
-            setContentTitle("ipfsTwitter")
+            setContentTitle("ethTweet")
 
             val open = pendingActivity<WebActivity>()
             setContentIntent(open)
             addAction(R.drawable.ic_cloud, "Open", open)
 
             if (daemon == null) {
-                setContentText("ipfsTwitter is not running")
+                setContentText("ethTweet is not running")
 
                 val start = pendingService(intent<DaemonService>().action("start"))
                 addAction(R.drawable.ic_cloud, "start", start)
             } else {
-                setContentText("ipfsTwitter is running")
+                setContentText("ethTweet is running")
 
                 val restart = pendingService(intent<DaemonService>().action("restart"))
                 addAction(R.drawable.ic_cloud, "restart", restart)

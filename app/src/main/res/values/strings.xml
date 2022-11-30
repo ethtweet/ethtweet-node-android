@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ipfsTwitter</string>
+    <string name="app_name">ethTweet</string>
 
     <string name="permission_store">为了更好的提供服务，需要获取存储空间权限</string>
 
