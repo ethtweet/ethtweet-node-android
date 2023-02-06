@@ -9,7 +9,6 @@ import android.webkit.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import im.delight.android.webview.AdvancedWebView
 import io.ethtweet.node.*
@@ -118,18 +117,18 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
 
 
     fun initData(){
-        webview.isVisible = false;
+        webview.isVisible = false
         viewModel.loadVersion()
         viewModel.checkIpfs()
     }
 
     fun initObserver(){
-        viewModel.version.observe(this, Observer { versionConfig ->
+        viewModel.version.observe(this, { versionConfig ->
             versionConfig.let {
                 checkUpdate(versionConfig)
             }
         })
-        viewModel.ipCheckRst.observe(this, Observer { ipChecked ->
+        viewModel.ipCheckRst.observe(this, { ipChecked ->
             if (ipChecked)
                 webview.loadUrl(url)
         })
@@ -155,6 +154,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
                 Log.d("====", "Ipfs onMessageEvent")
                 webview.loadUrl(url)
             }
+            else -> {}
         }
     }
     @Deprecated("Deprecated in Java")
@@ -187,7 +187,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
             .create()
     }
     private fun checkUpdate(data: VersionConfig) {
-        var updateInfo: UpdateInfoImpl = UpdateInfoImpl(
+        val updateInfo = UpdateInfoImpl(
             data.url, //安装包下载地址
             data.version, //网络上的版本号，用于判断是否可以更新(是否大于本地版本号)。
             data.version_name, //版本名称，用于显示在弹窗中，以告知用户将要更到哪个版本。
@@ -214,7 +214,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
             updateType: UpdateType
         ) {
             if (!isAutoCheck && !haveNewVersion) {
-                //Toast.makeText(applicationContext, "$curVersionName 已是最新版本！", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "$curVersionName 已是最新版本！", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -239,7 +239,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
                 if (updateType == UpdateType.UPDATE_FORCE) {
                     Toast.makeText(
                         applicationContext,
-                        getString(R.string.kelin_apk_updater_force_tips) + "$curVersionName",
+                        getString(R.string.kelin_apk_updater_force_tips) + curVersionName,
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
