@@ -1,11 +1,8 @@
 package io.ethtweet.node.ui
 
-import android.annotation.TargetApi
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.webkit.*
@@ -14,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import im.delight.android.webview.AdvancedWebView
+import io.ethtweet.node.*
 import io.ethtweet.node.apkUpdater.ApkUpdater
 import io.ethtweet.node.apkUpdater.SignatureType
 import io.ethtweet.node.apkUpdater.UpdateInfoImpl
@@ -22,8 +21,6 @@ import io.ethtweet.node.apkUpdater.callback.IUpdateCallback
 import io.ethtweet.node.data.VersionConfig
 import io.ethtweet.node.utils.MessageEvent
 import io.ethtweet.node.utils.MessageType
-import im.delight.android.webview.AdvancedWebView
-import io.ethtweet.node.*
 import kotlinx.android.synthetic.main.activity_web.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -39,11 +36,11 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
         ViewModelProvider(this).get(WebViewModel::class.java)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web)
         startService<DaemonService>()
+
 
         webview!!.apply {
             settings.javaScriptEnabled = true
@@ -92,7 +89,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
         override fun onShowFileChooser(
             webView: WebView,
             filePathCallback: ValueCallback<Array<Uri>>,
-            fileChooserParams: WebChromeClient.FileChooserParams
+            fileChooserParams: FileChooserParams
         ): Boolean {
             uploadMessageAboveL = filePathCallback
             openImageChooserActivity()
@@ -160,6 +157,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
             }
         }
     }
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() = webview.goBack()
 
     override fun onPageStarted(url: String?, favicon: Bitmap?) {}
@@ -275,7 +273,7 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == FILE_CHOOSER_RESULT_CODE) {
             if (null == uploadMessage && null == uploadMessageAboveL) return
-            val result = if (data == null || resultCode != Activity.RESULT_OK) null else data.data
+            val result = if (data == null || resultCode != RESULT_OK) null else data.data
             if (uploadMessageAboveL != null) {
                 onActivityResultAboveL(requestCode, resultCode, data)
             } else if (uploadMessage != null) {
@@ -285,12 +283,11 @@ class WebActivity : AppCompatActivity(), AdvancedWebView.Listener {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private fun onActivityResultAboveL(requestCode: Int, resultCode: Int, intent: Intent?) {
         if (requestCode != FILE_CHOOSER_RESULT_CODE || uploadMessageAboveL == null)
             return
         var results: Array<Uri>? = null
-        if (resultCode == Activity.RESULT_OK) {
+        if (resultCode == RESULT_OK) {
             if (intent != null) {
                 val dataString = intent.dataString
                 val clipData = intent.clipData

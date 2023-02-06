@@ -12,13 +12,13 @@ class NetworkUtils {
         try {
             socket.connect(InetSocketAddress(host, port))
         } catch (e: IOException) {
-            Log.e("====",e.message)
+            Log.e("====", e.message.toString())
             return false
         } finally {
             try {
                 socket.close()
             } catch (e: IOException) {
-                Log.e("====",e.message)
+                Log.e("====", e.message.toString())
             }
         }
         return true

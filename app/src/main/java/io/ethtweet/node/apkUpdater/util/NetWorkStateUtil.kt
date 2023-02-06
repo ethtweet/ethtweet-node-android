@@ -24,7 +24,7 @@ class NetWorkStateUtil private constructor() {
         var isRegister = false
 
         override fun onReceive(context: Context, intent: Intent) {
-            val networkInfo = intent.extras.getParcelable<NetworkInfo>(ConnectivityManager.EXTRA_NETWORK_INFO)
+            val networkInfo = intent.extras?.getParcelable<NetworkInfo>(ConnectivityManager.EXTRA_NETWORK_INFO)
             val type: Int
             type = (networkInfo?.type ?: return)
             if (ConnectivityManager.CONNECTIVITY_ACTION == intent.action) {

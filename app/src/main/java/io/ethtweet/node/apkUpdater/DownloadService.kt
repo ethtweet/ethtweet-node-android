@@ -137,7 +137,9 @@ class DownloadService : Service() {
         val downloadUrl = intent.getStringExtra(KEY_DOWNLOAD_URL)
         updateType = intent.getIntExtra(KEY_IS_FORCE_UPDATE, UpdateType.UPDATE_WEAK.code)
         mApkName = intent.getStringExtra(KEY_APK_NAME)
-        downloadApk(downloadUrl)
+        if (downloadUrl != null) {
+            downloadApk(downloadUrl)
+        }
         return DownloadBinder()
     }
 

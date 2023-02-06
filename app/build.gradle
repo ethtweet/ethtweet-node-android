@@ -1,20 +1,24 @@
 plugins {
     id "de.undercouch.download"
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-android-extensions"
 }
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+
 def releaseTime() {
     return new Date().format("yyyy-MM-dd-HH-mm", TimeZone.getTimeZone("GMT+8"))
 }
 android {
-    compileSdkVersion 28
+    compileSdkVersion 33
+    buildToolsVersion "33.0.1"
+
     defaultConfig {
         applicationId "io.ethtweet.node"
         minSdkVersion 21
+        //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 28
-        versionCode 107
-        versionName "1.0.7"
+        versionCode 115
+        versionName "1.1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters "armeabi-v7a"
