@@ -16,6 +16,15 @@ import io.ethtweet.node.ui.WebActivity
 import io.ethtweet.node.utils.MessageEvent
 import io.ethtweet.node.utils.MessageType
 import org.greenrobot.eventbus.EventBus
+import java.io.ByteArrayOutputStream
+
+import java.io.IOException
+
+import java.io.InputStream
+
+
+
+
 
 class DaemonService : Service() {
 
@@ -37,6 +46,7 @@ class DaemonService : Service() {
             }
 
         install()
+        templates()
         start()
         startForeground(1, notification.build())
     }
@@ -61,14 +71,37 @@ class DaemonService : Service() {
         }
 
         bin.setExecutable(true)
+
         println("Installed binary")
     }
+    fun templates() {
+
+        val type = "templates.zip"
+
+        templates.apply {
+            delete()
+            createNewFile()
+        }
+
+        val input = assets.open(type)
+        val output = templates.outputStream()
+
+        try {
+            input.copyTo(output)
+        } finally {
+            input.close()
+            output.close()
+        }
+
+
+        println("Installed binary")
+    }
+
 
     fun start() {
         logs.clear()
 
-
-        exec(" --user_data /sdcard/ethtweet --ipfs_api https://cdn.ipfsscan.io").apply {
+        exec(" --user_data " + getExternalFilesDir(null)!!["ethtweet"].toString() + " --ipfs_api https://cdn.ipfsscan.io").apply {
             daemon = this
             read {
                 logs.add(it)

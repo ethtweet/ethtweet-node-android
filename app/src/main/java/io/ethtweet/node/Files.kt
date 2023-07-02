@@ -13,6 +13,8 @@ import java.io.InterruptedIOException
 operator fun File.get(path: String) = File(this, path)
 val Context.store get() = getExternalFilesDir(null)!!["ethtweet"]
 val Context.bin get() = filesDir["ethtweet"]
+
+val Context.templates get() = filesDir["templates.zip"]
 val Context.config get() = JsonParser().parse(FileReader(store["config"])).asJsonObject
 
 fun Context.config(consumer: JsonObject.() -> Unit) {
