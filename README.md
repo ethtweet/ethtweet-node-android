@@ -1,1 +1,1 @@
-app/src/main/assets 目录下放二进制包，文件名和 app/src/main/java/io/ipfstwitter/node/Daemon.kt 46行的type值一样
+app/src/main/assets 目录下放二进制包，需要下载 https://github.com/ethtweet/ethtweet/releases 安卓 arm64 的版本，里面还需要 templates.zip
